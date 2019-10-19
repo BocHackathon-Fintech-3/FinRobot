@@ -1,0 +1,68 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Dashboard</h2>
+    </div>
+    <div class="col-lg-2 right">
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="ibox">
+            <div class="ibox-content">
+                <div class="row">
+                    <div class="col-lg-10">
+                        <h4>Period: <b>To Date</b></h4>
+                        <h4>FinRobot user: <b>{{ fullName }}</b></h4>
+                        <h4>Funds invested: &euro; <b>{{ totalInvest }}</b></h4>
+                        <h4>Portfolio Rent Rights <b>{{ totalInvestPercentage }}%</b></h4>
+                    </div>
+                    <div class="col-lg-2">
+                        <a routerLink="/invest"><button class="btn btn-primary"  style="font-size: 20px; margin-top: 30px;">Add Funds</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ibox">
+            <div class="ibox-content">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Asset</th>
+                            <th>Value</th>
+                            <th>Expected Revenue Yearly</th>
+                            <th>Rent Revenue Monthly</th>
+                            <th>Your Gross Profit</th>
+                            <th>Your Net Profit</th>
+                            <th>ROI Yearly (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Portfolio</td>
+                            <td>&euro; {{ totalPropertyValue }}</td>
+                            <td>&euro; {{ totalExpectedRevenue }}</td>
+                            <td>&euro;{{ totalRentRevenue }}</td>
+                            <td>&euro; {{ totalGrossProfit }}</td>
+                            <td>&euro; {{ totalNetProfit }}</td>
+                            <td>{{ totalRoi }}%</td>
+                        </tr>
+                        <tr *ngFor="let property of properties">
+                            <td>{{ property.title }}</td>
+                            <td>&euro; {{ property.value }}</td>
+                            <td>&euro; {{ property.expectedReturn }}</td>
+                            <td>&euro; {{ property.estimationRent }}</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>
+                                <ng-container *ngIf="property.id == '1'">1.84%</ng-container>
+                                <ng-container *ngIf="property.id == '2'">1.66%</ng-container>
+                                <ng-container *ngIf="property.id == '3'">1.73%</ng-container>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

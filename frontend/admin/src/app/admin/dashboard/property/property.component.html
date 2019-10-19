@@ -1,0 +1,45 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Property</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a routerLink="/user/Portfolio">Portfolio</a>
+            </li>
+            <li class="active">
+                <strong>Property</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-md-7">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h2>{{ details.title }}</h2>
+                </div>
+                <img src="{{ details.imagePath }}" class="img-responsive">
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="ibox mb-3">
+                <div class="ibox-title"><h2>Property Details</h2></div>
+                <div class="ibox-content">
+                    <h5>Property Value: &euro;{{ details.value }}</h5>
+                    <h5>Rent Revenue: &euro;{{ details.rent }}</h5>
+                    <h5>City: {{ details.city }}</h5>
+                    <h5>District: {{ details.district }}</h5>
+                    <h5>Type: {{ details.type }}</h5>
+                    <h5>Year Built: {{ details.year }}</h5>
+                    <h5>Date Rented: {{ details.date }}</h5>
+                </div>
+            </div>
+            <div class="ibox mb-3">
+                <div class="ibox-title"><h2>Property Description</h2></div>
+                <div class="ibox-content" [innerHTML]="details.description"></div>
+            </div>
+        </div>
+    </div>
+</div>

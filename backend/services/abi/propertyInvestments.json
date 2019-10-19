@@ -1,0 +1,176 @@
+[
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "propertyInvestmentId",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "userId",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "propertyV1Id",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "propertyV1Amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "propertyV2Id",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "propertyV2Amount",
+				"type": "uint256"
+			}
+		],
+		"name": "createPropertyInvestment",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "propertyInvestmentId",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "propertyV1Roi",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "propertyV2Roi",
+				"type": "uint256"
+			}
+		],
+		"name": "createPropertyInvestmentRoi",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "propertyInvestmentId",
+				"type": "string"
+			}
+		],
+		"name": "getPropertyInvestments",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "userId",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "propertyV1Id",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "propertyV2Id",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "propertyV3Id",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "propertyV4Id",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "propertyV1Amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "propertyV2Amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "propertyV3Amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "propertyV4Amount",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "propertyInvestmentId",
+				"type": "string"
+			}
+		],
+		"name": "getPropertyInvestmentsRoi",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "propertyV1Roi",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "propertyV2Roi",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "propertyV3Roi",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "propertyV4Roi",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]

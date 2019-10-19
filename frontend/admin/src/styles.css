@@ -1,0 +1,109 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,300,500,700");
+
+
+@media only screen and (min-width: 1170px) {
+    .center-orientation .vertical-timeline-content .vertical-date {
+        top: 15px !important;
+    }
+}
+
+.home-spinner {
+    position: absolute;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    background-color: #FFF !important;
+}
+
+body {
+    font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #2f4050 !important;
+    font-size: 13px !important;
+    color: #676a6c !important;
+    overflow-x: hidden !important;
+}
+
+a {
+    cursor: pointer;
+}
+
+.error-help-block {
+    padding-top: 5px;
+    list-style-type: none;
+}
+
+.notification-message-box {
+    position:absolute !important;
+    margin-top: 60px;
+}
+
+app-admin-login .error-help-block {
+    color: #a94442;
+}
+
+
+admin-dashboard .form-control:focus, .single-line:focus {
+    border-color: #1ab394 !important;
+}
+
+/* Admin */
+.notification-message-box {
+    position: absolute;
+    top: 0px !important;
+    left: 0px !important;
+    z-index: 1000;
+}
+.message-notification {
+    padding: 15px;
+}
+
+.profile-element .block.m-t-xs{
+    color: #fff;
+}
+
+.checkbox-inline {
+    margin-top: 20px !important;
+    padding-bottom: 10px !important; 
+}
+
+.thumbnail-image img.img-responsive {
+    max-width: 100px !important;
+}
+
+input[type=number] {
+    height: 32px !important;
+  }
+
+
+@media (max-width: 768px) {
+    body:not(.mini-navbar) {
+        background-color: #2f4050 !important;
+    }
+
+    #page-wrapper {
+        min-height: 900px !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-right {
+        float: right !important;
+        margin-right: 0px !important;
+    }
+}
+
+
+.gray-bg {
+    min-height: 1000px !important;
+}
+
+.product-imitation {
+    padding: 0px !important;
+}
+
+.product-desc {
+    padding: 10px !important;
+}
