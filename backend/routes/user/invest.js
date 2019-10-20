@@ -13,6 +13,7 @@ const Web3 = require('web3'),
     braintree = require('braintree');
 
 const propertyInvestmentsABI = require('../../services/abi/propertyInvestments.json'),
+
       web3 = new Web3(new Web3.providers.HttpProvider(process.env.ETHEREUM_ENDPOINT)),
       investContractAddress = process.env.INVESTCONTRACT,
       publicAddress = process.env.PUBLICADDRESS,
@@ -95,16 +96,16 @@ router.post('/investproperties', async(req, res, next) => {
 
         const hash = await sendToken(1, userInvestmentGroup.id, userPortfolio)
         await userInvestmentGroupModel.update({
-            hash: hash
+            hash: hash.transactionHash
         },{
             where: {
                 id: userInvestmentGroup.id
             }
         });
-        return {
-            userInvestmentGroup: userInvestmentGroup.id,
-            hash: hash
-        }
+        return res.json({
+            userInvestmentGroupId: userInvestmentGroup.id,
+            hash: hash.transactionHash
+        });
 
     } catch(err) {
         return next(boom.badImplementation(err));
@@ -146,29 +147,23 @@ const sendToken = async(userId, propertyInvestmenGrouptId, properties) => {
     let propertyV1Id = null;
     let propertyV2Id = null;
     let propertyV3Id = null;
-    let propertyV4Id = null;
     let propertyV1Amount = null;
     let propertyV2Amount = null;
     let propertyV3Amount = null;
-    let propertyV4Amount = null;
 
 
     if(properties.length > 0) {
         if(properties.length == 1) {
-            propertyV1Id = properties[0].id;
+            propertyV1Id = `1`;
             propertyV1Amount = properties[0].amount
         }
         if(properties.length == 2) {
-            propertyV2Id = properties[1].id;
+            propertyV2Id = '2';
             propertyV2Amount = properties[1].amount
         }
         if(properties.length == 3) {
-            propertyV3Id = properties[2].id;
+            propertyV3Id = '3';
             propertyV3Amount = properties[2].amount
-        }
-        if(properties.length == 4) {
-            propertyV4Id = properties[3].id;
-            propertyV4Amount = properties[3].amount
         }
     }
 
@@ -179,20 +174,18 @@ const sendToken = async(userId, propertyInvestmenGrouptId, properties) => {
         from: publicAddress,
         to: investContractAddress,
         nonce: countVal,
-        gasPrice: web3.utils.toHex(1000000000),
-        gasLimit: web3.utils.toHex(90000),
+        gasPrice: web3.utils.toHex(9000000000),
+        gasLimit: web3.utils.toHex(900000),
         value: "0x0",
         data: investContract.methods.createPropertyInvestment(
-            propertyInvestmentId, 
-            userId, 
-            propertyV1Id,
-            propertyV1Amount,
-            propertyV2Id,
-            propertyV2Amount,
-            propertyV3Id,
-            propertyV3Amount,
-            propertyV4Id,
-            propertyV4Amount
+            propertyInvestmenGrouptId, 
+            `1`, 
+            '1',
+            (propertyV1Amount / 100).toFixed(0),
+            '2',
+            (propertyV2Amount / 100).toFixed(0),
+            '3',
+            (propertyV3Amount / 100).toFixed(0)
         ).encodeABI()
     })
     tx.sign(privKey);

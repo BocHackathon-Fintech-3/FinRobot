@@ -19,6 +19,7 @@ import { HomeService } from '../../../shared/services/admin/home.service'
     totalNetProfit = null
     totalRoi = null
     properties = [];
+    userInvestmentGroups = []
     constructor(
         private homeService: HomeService
     ) {}
@@ -35,6 +36,7 @@ import { HomeService } from '../../../shared/services/admin/home.service'
             this.totalNetProfit = data.totalNetProfit
             this.totalRoi =  data.totalRoi
             this.properties = data.properties
+            this.userInvestmentGroups = data.userInvestmentGroups
         })  
     }
 }

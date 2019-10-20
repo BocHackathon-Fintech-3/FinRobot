@@ -31,6 +31,16 @@
 				"internalType": "uint256",
 				"name": "propertyV2Amount",
 				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "propertyV3Id",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "propertyV3Amount",
+				"type": "uint256"
 			}
 		],
 		"name": "createPropertyInvestment",
@@ -61,6 +71,11 @@
 			{
 				"internalType": "uint256",
 				"name": "propertyV2Roi",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "propertyV3Roi",
 				"type": "uint256"
 			}
 		],
@@ -108,11 +123,6 @@
 				"type": "string"
 			},
 			{
-				"internalType": "string",
-				"name": "propertyV4Id",
-				"type": "string"
-			},
-			{
 				"internalType": "uint256",
 				"name": "propertyV1Amount",
 				"type": "uint256"
@@ -125,11 +135,6 @@
 			{
 				"internalType": "uint256",
 				"name": "propertyV3Amount",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "propertyV4Amount",
 				"type": "uint256"
 			}
 		],
@@ -161,11 +166,6 @@
 			{
 				"internalType": "uint256",
 				"name": "propertyV3Roi",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "propertyV4Roi",
 				"type": "uint256"
 			}
 		],

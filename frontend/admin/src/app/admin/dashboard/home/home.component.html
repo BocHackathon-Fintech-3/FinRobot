@@ -23,6 +23,9 @@
             </div>
         </div>
         <div class="ibox">
+            <div class="ibox-title">
+                <h3>Account Status</h3>
+            </div>
             <div class="ibox-content">
                 <table class="table">
                     <thead>
@@ -41,13 +44,13 @@
                             <td>Portfolio</td>
                             <td>&euro; {{ totalPropertyValue }}</td>
                             <td>&euro; {{ totalExpectedRevenue }}</td>
-                            <td>&euro;{{ totalRentRevenue }}</td>
+                            <td>&euro; {{ totalRentRevenue }}</td>
                             <td>&euro; {{ totalGrossProfit }}</td>
                             <td>&euro; {{ totalNetProfit }}</td>
                             <td>{{ totalRoi }}%</td>
                         </tr>
                         <tr *ngFor="let property of properties">
-                            <td>{{ property.title }}</td>
+                        <td><a routerLink="/property/{{property.id}}" style="color: #676a6c !important;">{{ property.title }}</a></td>
                             <td>&euro; {{ property.value }}</td>
                             <td>&euro; {{ property.expectedReturn }}</td>
                             <td>&euro; {{ property.estimationRent }}</td>
@@ -58,6 +61,33 @@
                                 <ng-container *ngIf="property.id == '2'">1.66%</ng-container>
                                 <ng-container *ngIf="property.id == '3'">1.73%</ng-container>
                             </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="ibox">
+            <div class="ibox-title">
+                <h3>Historical Capital Movement</h3>
+            </div>
+            <div class="ibox-content">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Ownership</th>
+                            <th>Certificate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let userInvestmentGroup of userInvestmentGroups">
+                            <td>{{ userInvestmentGroup.createdAt | date: 'dd/MM/yyyy' }}</td>
+                            <td>&euro; {{ userInvestmentGroup.amount }}</td>
+                            <td>{{ userInvestmentGroup.amountPercentage }}%</td>
+                            <td><a href="https://ropsten.etherscan.io/tx/{{userInvestmentGroup.hash}}" target="_blank">
+                                <button class="btn btn-primary">Blockchain Certificate</button>
+                            </a></td>
                         </tr>
                     </tbody>
                 </table>

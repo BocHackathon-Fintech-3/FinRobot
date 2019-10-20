@@ -63,15 +63,16 @@ router.get('/', async(req, res, next) => {
         return res.json({
             firstName: userProfile.firstName,
             lastName: userProfile.lastName,
-            totalPropertyValue: totalPropertyValue,
-            totalRentRevenue: totalRentRevenue,
-            totalExpectedRevenue: totalExpectedRevenue,
+            totalPropertyValue: Number(totalPropertyValue).toFixed(2),
+            totalRentRevenue: Number(totalRentRevenue).toFixed(2),
+            totalExpectedRevenue: Number(totalExpectedRevenue).toFixed(2),
             totalGrossProfit: 0,
             totalNetProfit: 0,
             totalRoi: Number((totalExpectedRevenue / totalInvestAmount) * 100).toFixed(2),
             totalInvest: totalInvestAmount,
             totalInvestPercentage: (amountPercentage).toFixed(2),
-            properties: propertiesArray
+            properties: propertiesArray,
+            userInvestmentGroups: userInvestmentGroups
         })
     }
     catch(err) {
@@ -98,6 +99,20 @@ router.get('/properties', async(req, res, next) => {
     } catch(err) {
         return next(boom.badImplementation(err));
     }
+});
+
+
+router.get('/hash/:id', async(req, res, next) => {
+    const userInvestmentGroup = await userInvestmentGroupModel.findOne({
+        where: {
+            status: 'C',
+            id: req.params.id
+        }
+    });
+
+    return res.json({
+        hash: userInvestmentGroup.hash
+    })
 });
       
 

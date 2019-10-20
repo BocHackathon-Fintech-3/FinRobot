@@ -39,7 +39,8 @@ import { BrowserXhr } from '@angular/http';
         dashboard.AdminHomeComponent,
         dashboard.AdminPortfolioComponent,
         dashboard.AdminPropertyComponent,
-        dashboard.AdminInvestComponent
+        dashboard.AdminInvestComponent,
+        dashboard.AdminReceiptComponent
     ],
     imports: [
         // Ng2SearchPipeModule,

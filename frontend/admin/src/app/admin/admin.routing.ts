@@ -41,6 +41,10 @@ const routes: Routes = [
             {
                 path: 'invest',
                 component: dashboard.AdminInvestComponent
+            },
+            {
+                path: 'receipt/:id',
+                component: dashboard.AdminReceiptComponent
             }
         ]
     }

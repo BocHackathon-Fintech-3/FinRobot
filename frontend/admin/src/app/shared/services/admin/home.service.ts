@@ -37,7 +37,14 @@ export class HomeService {
             environment.apiUrl + '/user/invest/investproperties',
             data,
             this.authAdminService.createAuthenticationHeaders()
-        )
+        ).map(res => res.json());
     }
+
+    getHash(id) {
+        return this.http.get(
+            environment.apiUrl + `/user/home/hash/${id}`,
+            this.authAdminService.createAuthenticationHeaders()
+        ).map(res => res.json());
+    } 
 
 };

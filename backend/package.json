@@ -14,10 +14,12 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "boom": "^7.3.0",
+    "braintree": "^2.11.0",
     "cors": "^2.8.4",
     "dotenv": "^6.1.0",
     "email-templates": "^2.7.1",
     "errorhandler": "^1.5.0",
+    "ethereumjs-tx": "^1.3.4",
     "express": "^4.16.3",
     "handlebars": "^4.0.11",
     "morgan": "^1.9.1",
@@ -28,9 +30,7 @@
     "passport-jwt": "^4.0.0",
     "request": "^2.88.0",
     "sequelize": "^4.38.1",
-    "braintree": "^2.11.0",
-    "ethereumjs-tx": "^1.3.4",
-    "web3": "^1.0.0-beta.34"
+    "web3": "^1.2.1"
   },
   "devDependencies": {
     "newman": "^4.1.0",

@@ -11,8 +11,10 @@ import { HomeService } from '../../../shared/services/admin/home.service'
   export class AdminInvestComponent implements OnInit {
       properties = []
       investAmount = 500;
+      proceed = false;
     constructor(
-        private homeService: HomeService
+        private homeService: HomeService,
+        private router: Router,
     ) {}
 
     ngOnInit() {
@@ -36,10 +38,15 @@ import { HomeService } from '../../../shared/services/admin/home.service'
 
 
     submit() {
+        this.proceed = true;
         this.homeService.addFunds({
             amount: this.investAmount
-        }).subscribe((data) => {
+        }).subscribe((data: any) => {
+            this.router.navigateByUrl('receipt/' + data.userInvestmentGroupId)
+            this.proceed = false;
 
+        }, (err) => {
+            this.proceed = false;
         })
     }
 
